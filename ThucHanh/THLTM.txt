@@ -1,0 +1,30 @@
+﻿Buổi 1:
+I.	Sử dụng NETCAT làm quen với giao thức HTTP
+-	Sử dụng công cụ NETCAT nghe ở cổng 8000 sau đó sử dụng NETCAT nối vào cổng đó, gửi dữ liệu và làm quen với NETCAT
+-	Sử dụng công cụ NETCAT để tạo một dịch vụ phía máy chủ, nghe ở công 8080 
+nc –vv –L –p 8080
+-	Sử dụng một trình duyệt bất kỳ (Ví dụ: Chrome) để mở địa chỉ 
+	http://127.0.0.1:8080 
+
+-	Quan sát và ghi lại toàn bộ dữ liệu hiển thị trên NETCAT 
+
+II.	Sử dụng NETCAT để lấy mã html
+-	Sử dụng NETCAT nối vào một máy chủ web (ví dụ: vnexpress.net cổng 80)
+-	Sử dụng dữ liệu quan sát được trong phần I, hãy mô phỏng lại và gửi đi bằng NETCAT để lấy đựoc html của trang web
+III.	Lập trình một client để mô phỏng trình duyệt
+-	Kết nối vào dịch vụ NETCAT ở phần I
+-	Gửi lại toàn bộ dữ liệu (mô phỏng) như đã ghi lại trong phần I
+-	Quan sát kết quả hiện trên NETCAT để đảm bảo kết quả mô phỏng “giống hệt” như khi dùng trình duyệt
+IV.	Phát triển client trong phần II để kết nối và lấy dữ liệu html của một trang web bất kỳ (ví dụ: google.com)
+-	Chương trình trong phần III đã viết, chạy thử với một máy chủ web thật và xem kết quả.
+Buổi 2:
+Bài 1: Sử dụng API để tìm danh sách thư mục/file
+Bài 2: Dùng NETCAT để thử xem HTTP server trả lời thế nào? 
+Bài 3: Lập trình một HTTP File server nghe tại cổng 8000. Khi trình duyệt yêu cầu thư mục gốc: GET / HTTP1.1 thì trả về nội dung bao gồm toàn bộ tên các thư mục và file trong ổ C, mỗi tên trên một dòng. 
+-	Khi nhận được yêu cầu từ trình duyệt dạng GET x HTTP/1.1 thì phân tích chuỗi x để xem trình duyệt yêu cầu gì?
+-	Nếu x = “/” thì có nghĩa trình duyệt yêu cầu trang chủ (thư mục gốc – ổ C)
+-	Nếu x=”/” thì duyệt ổ “C” và tạo ra một chuỗi html để chứa các tên thư mục và file. Ví dụ:
+y=”<html><b>Temp</b><br><i>log.txt</i><br></html>”
+-	Gửi phản hồi cho trình duyệt mô phỏng như phần II. Ví dụ
+“HTTP/1.1 200 OK\nContent-Type: text/html; charset=utf-8\n<html><b>Temp</b><br><i>log.txt</i><br></html>”
+Buổi 3: Sáng tạo nhé em?????
